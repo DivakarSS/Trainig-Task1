@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task1</title>
+	
+</head>
+<body>
+<center>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name:</th>
+					<td><input type="text" placeholder="Name" name="name" id="name"></td>
+				</tr>
+			
+			
+				<tr>
+					<th>Age:</th>
+					<td><input type="number" placeholder="Age" min="1" max="99" name="age" id="age"></td>
+				</tr>
+				
+				
+			</thead>
+		</table>
+		<br>
+		<table>
+			<tr>
+				
+					<input type="button" name="button" id="btn" value="save" onclick="AddRow()">
+				
+			</tr>
+		</table>
+
+		<br><br>
+
+		<table border="1" id="show">
+			<thead>
+				<tr>
+					<th>Name</th>
+					
+					<th>Age</th>
+				</tr>
+			</thead>
+		</table>
+	</center>
+	
+	<script>
+		
+		var row =1;
+		function AddRow(){
+
+			var name = document.getElementById("name").value;
+			var age = document.getElementById("age").value;
+
+			if(!name || !age){
+				alert('Enter all fields');
+				return;
+			}
+			
+			else if(name == "null" || name == "undefined")
+			{
+				alert('Enter a valid name');
+				return
+			}
+            else if(age > 99 || age < 1)
+            {
+                alert('Enter a valid age');
+                return;
+            }
+            else{
+
+            }			
+
+			var show = document.getElementById("show");
+
+			var newRow = show.insertRow(row);
+			var cell1 = newRow.insertCell(0);
+			var cell2 = newRow.insertCell(1);
+
+			cell1.innerHTML = name;
+			cell2.innerHTML = age;
+
+			row++;
+
+			
+		}
+
+	</script>
+</body>
+</html>
